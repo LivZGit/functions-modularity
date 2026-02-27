@@ -27,10 +27,6 @@ def process_scores(students):
     
     return avg_score
 
-    
-stu = {'Alice':[70,80,90, 90], 'Bob':[40,50,60],'Carlo':[]}    
-
-task_1_result = process_scores(stu)
 
 def classify_grades(averages):
     print("\n===== Task 2 =====\n")
@@ -64,5 +60,42 @@ def classify_grades(averages):
     
     return student_grade
         
+
+def generate_report(classified, passing_avg=70):
+    print("\n===== Student Grade Report =====\n")
+    
+    student_report = {}
+    
+    passed_student = 0
+    failed_student = 0
+    
+    for name, (avg_score, grade) in classified.items():
+        
+        if(grade != 'F'):
+            passed_student +=  1
+            status = 'Pass'
+            print(f"Name : {name} | Avg : {avg_score} | Grade: {grade} | Status: {status}")
+        
+        else:
+            failed_student += 1
+            status = 'Fail'
+            print(f"Name : {name} | Avg : {avg_score} | Grade: {grade} | Status: {status}")
+    
+        student_report[name] = (avg_score, grade, status)
+    count_student = 0
+    
+    for length in classified.items():
+        count_student += 1
+    
+    print("\n================================\n")
+    print(f"Total Student : {count_student}")
+    print(f"Passed Student : {passed_student}")
+    print(f"Failed Student : {failed_student}")
+    
+    return student_report
+
+stu = {'Alice':[76,89,92,100], 'Bob':[85,51,60,72], 'Carlo':[79,49,59,60], 'Denise':[]}
+    
+task_1_result = process_scores(stu)
 task_2_result = classify_grades(task_1_result)
-print("--->",task_2_result)
+task_3_result = generate_report(task_2_result)
