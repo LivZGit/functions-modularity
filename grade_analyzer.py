@@ -1,3 +1,6 @@
+#Name - Ishwar Vishwakarma
+#Enroll - iitp_aimlh_2602411
+
 def process_scores(students):
     print("\n===== Task 1 =====\n")
     avg_score = {}
